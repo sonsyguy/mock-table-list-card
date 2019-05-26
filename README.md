@@ -23,7 +23,19 @@
 │ │   ├── /models/     #私有模型(按需加载) 
 │ │   ├── /services/   #私有服务(按需加载)   
 │ │   ├── page.js       
-│ │   └── page.less   
+│ │   └── page.less 
+│ │ └── /formDemo/       # 路由
+│ │   ├── /components/ #私有组件     
+│ │   ├── /models/     #私有模型(按需加载) 
+│ │   ├── /services/   #私有服务(按需加载)   
+│ │   ├── index.js       
+│ │   └── index.less
+│ │ └── /table/       # 路由
+│ │   ├── /components/ #私有组件     
+│ │   ├── /models/     #私有模型(按需加载) 
+│ │   ├── /services/   #私有服务(按需加载)   
+│ │   ├── index.js       
+│ │   └── index.less    
 │ ├── /models/       # 全局数据模型(默认加载)
 │ ├── /services/     # 数据接口
 │ ├── /themes/       # 项目样式
@@ -54,18 +66,8 @@
 ## Usage
 
 ```bash
-$ git clone https://github.com/xiaohuoni/dva-umi.git
+$ git clone https://github.com/sonsyguy/mock-table-list-card.git
 $ cd dva-umi
-$ npm install
-$ npm start         # visit http://localhost:8000
-```
-
-Or you can use the command tool: [oni-cli](https://github.com/xiaohuoni/oni-cli)
-
-```bash
-$ npm install oni-cli -g
-$ oni new myapp
-$ cd myapp
 $ npm install
 $ npm start         # visit http://localhost:8000
 ```
