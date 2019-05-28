@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-import {Table,Popover,Icon,Modal,Form,Input} from 'antd'
+import {Table,Popover,Icon,Modal,Form,Input, Button} from 'antd'
 import styles from './index.css';
 
 const data = [];
@@ -19,6 +19,8 @@ class TableShow extends Component {
     visible:false,
     editData:{},
     formLayout: 'horizontal',
+    modelTipMessage: '',
+    defaultStyle: true
   }
 
   edit = (record,text) => {
@@ -58,8 +60,30 @@ class TableShow extends Component {
       editData:{}
     });
   };
-  
+  Btnclick = e =>{
+    this.props.form.validateFields((err, values) => {
+      if (err) {
+        console.log('Received values of form: ', values);
+        this.setState({
+          modelTipMessage: 'success',
+        })
+      }else{
+        this.setState({
+          modelTipMessage: 'failed',
+          defaultStyle: false
+
+        })
+      }
+    });
+    console.log('lal');
+  }
   render (){
+    let successModelStyle={
+      color:this.state.defaultStyle ? 'green':'red',
+    }
+    let failModelStyle={
+      color:'red',
+    }
     const { getFieldDecorator } = this.props.form;
     const { formLayout } = this.state;
     const formItemLayout =
@@ -106,6 +130,13 @@ class TableShow extends Component {
       },
     ];
 
+    const ModelTitle = () =>{
+      return(
+        <div>
+          lala
+        </div>
+      )
+    }
     const expandedRowRender = (record) => {
       console.log(record);
       const data1=[{
@@ -122,7 +153,7 @@ class TableShow extends Component {
       <div>
         <Table rowKey="name" columns={columns} dataSource={data} expandedRowRender={expandedRowRender} />
         <Modal
-            title="Basic Modal"
+            title={<div><span>test1 > </span><span style={{color:'red'}}>test2</span></div>}
             visible={this.state.visible}
             onOk={this.handleSubmit}
             onCancel={this.handleCancel}
@@ -130,6 +161,7 @@ class TableShow extends Component {
           <p>{this.state.editData.age}</p>
           <p>{this.state.editData.name}</p>
           <p>{this.state.editData.address}</p>
+          <span style={successModelStyle}>{this.state.modelTipMessage}</span><Button type="primary" onClick={this.Btnclick}>ok</Button>
           <Form className="login-form"  layout={formLayout}>
             <Form.Item label="username" {...formItemLayout}>
               {getFieldDecorator('username', {
