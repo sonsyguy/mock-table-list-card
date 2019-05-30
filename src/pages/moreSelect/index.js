@@ -7,8 +7,11 @@ const { Option } = Select;
 class MoreSelect extends Component{
   render() {
     return(
-
-        
+        <div>
+<br />
+        <br />
+        <br />
+        <br />
         <Select
           mode="multiple"
           style={{minWidth:140}}
@@ -19,6 +22,9 @@ class MoreSelect extends Component{
           <Option value='3'>3</Option>
           <Option value='4'>4</Option>
         </Select>
+        </div>
+
+        
     )
   }
 }
