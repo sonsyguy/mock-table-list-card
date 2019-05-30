@@ -6,6 +6,7 @@
     "lint": "eslint --ext .js src test"
   },
   "dependencies": {
+    "moment": "^2.24.0",
     "umi": "*",
     "umi-plugin-react": "*"
   },

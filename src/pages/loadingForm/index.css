@@ -1,0 +1,68 @@
+
+获取对象的key【键】和分别获取数组的key【键】和值
+一、先说对象，如何获取key【键】；
+
+　　
+
+1
+2
+3
+4
+var obj={
+          name:"websong",
+          qq:289483936
+    }
+　　
+
+想要获取这个obj对象的键“name”和"qq"，需要用到内置对象Object的keys方法，代码如下：
+
+1
+2
+3
+4
+5
+6
+7
+Object.keys(obj).forEach(function(key,i,v){
+            console.log(key)
+            console.log("---------")
+            console.log(i);
+            console.log("---------")
+            console.log(v)
+        })  
+　　
+
+这个方法可以将对象obj的key键以数组形式输出，然后我们用循环方式拿到即可。
+
+ 
+
+二、获取数组对象的key和值
+
+1
+var arr=[{a:3},{b:4},{qqQue:535880373}];
+　　
+
+道理是一样的，无非是先把数组循环一下，代码如下：
+
+1
+2
+3
+4
+5
+6
+arr.forEach((v,i)=>{                  
+            Object.keys(v).forEach(v=>{
+                console.log(v)//取到了key
+                console.log(arr[i][v])//取到了值
+            })
+        })
+　　
+
+ES6获取key：Object.getOwnPropertyNames
+
+1
+2
+3
+var obj={a:1,b:2};
+Object.getOwnPropertyNames(obj)
+// ["a", "b"]

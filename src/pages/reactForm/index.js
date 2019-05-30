@@ -10,7 +10,7 @@ class FormDemo extends Component{
     address:'',
     hobby:'',
     password:'',
-    check: false
+    check: false,
   }
   handleChange =(event) =>{
     const target = event.target;
@@ -24,9 +24,16 @@ class FormDemo extends Component{
     this.setState({
       check:event.target.checked
     })
-    console.log(this.state.check);
   }
   render(){
+    const data1 = {
+      host: '127.0.0.1',
+      port: 80,
+      username: 'hehe',
+      password: '2342'
+    }
+    const key1 = Object.getOwnPropertyNames(data1);
+    console.log(key1);
     return(
       <div>
         <Row style={{marginTop:200}}>
@@ -50,7 +57,7 @@ class FormDemo extends Component{
               </label>
               <label>
                 Password:
-                <input type="password" name="password" value={this.state.check ? 0 : 1} onChange={this.handleChange} />
+                <input type="password" name="password" onChange={this.handleChange} />
               </label>
               <input type="submit" value="Submit" />
             </form>
